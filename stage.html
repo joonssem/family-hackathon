@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>가족해커톤 · 무대 안내</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stage" id="stage">
+  <aside class="stage-side">
+    <div class="brand">가족해커톤</div>
+    <div class="stage-top" id="tabs"></div>
+    <div class="stage-steps" id="steps"></div>
+    <div class="stage-hint">스페이스 시작/멈춤<br>← → 단계 이동<br>R 처음 시간으로<br>F 전체 화면</div>
+  </aside>
+  <main class="stage-main">
+    <h1 class="stage-title" id="title"></h1>
+    <div class="timer" id="timer">00:00</div>
+    <p class="stage-text" id="text"></p>
+    <div class="stage-controls">
+      <button id="prev">◀ 이전</button>
+      <button id="toggle" class="primary">시작</button>
+      <button id="reset">처음 시간으로</button>
+      <button id="next">다음 ▶</button>
+    </div>
+  </main>
+</div>
+<script src="config.js"></script>
+<script src="common.js"></script>
+<script src="stage.js"></script>
+</body>
+</html>
