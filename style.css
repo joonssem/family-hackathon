@@ -85,6 +85,9 @@ a { color: inherit; }
 .nav button { flex: 1; max-width: 360px; font-size: 1.2rem; padding: 0.8rem; }
 .nav button + button { margin-left: -2px; }
 
+.link-button { display: inline-block; margin-top: 0.5rem; padding: 0.9rem 1.6rem; background: var(--ink); color: var(--paper); text-decoration: none; font-weight: 700; font-size: 1.3rem; border: 2px solid var(--ink); }
+.link-button:hover { background: var(--red); border-color: var(--red); }
+
 /* 프롬프트 만들기 */
 .builder label { display: block; font-weight: 700; margin: 1.2rem 0 0.4rem; border-top: 1px solid var(--ink); padding-top: 0.6rem; }
 .chips { display: flex; gap: 0; flex-wrap: wrap; }

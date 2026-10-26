@@ -147,6 +147,11 @@
       body.appendChild(el('ul', { class: 'questions' }, step.questions.map((q) => el('li', { text: q }))));
     }
     if (step.kind === 'prompt') renderBuilder(body);
+    if (step.link === 'padlet') {
+      body.appendChild(E.padletUrl
+        ? el('a', { class: 'link-button', href: E.padletUrl, target: '_blank', rel: 'noopener', text: 'Padlet 열기 ↗' })
+        : el('div', { class: 'privacy', text: 'Padlet 주소는 선생님이 알려 줘요.' }));
+    }
     card.appendChild(body);
 
     $('prev').disabled = sIdx === 0 && stIdx === 0;

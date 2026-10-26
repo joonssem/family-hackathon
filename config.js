@@ -93,8 +93,14 @@ window.EVENT = {
         },
         {
           id: 's3-share', kind: 'share', title: '완성본 내기', minutes: 5,
-          stage: '완성한 작품을 선생님의 안내에 따라 내요.',
-          guide: ['제출 방법은 선생님이 안내해요.'],
+          stage: '완성한 작품의 링크를 Padlet에 올려요.',
+          guide: [
+            'Gemini에서 "공유"를 눌러 작품 링크를 복사해요.',
+            '아래 "Padlet 열기"를 눌러 새 글을 만들고 링크를 붙여 넣어요.',
+            '제목은 "우리 가족"이나 별명으로만 써요.',
+          ],
+          privacy: true,
+          link: 'padlet',
         },
         {
           id: 's3-present', kind: 'present', title: '가족 발표', minutes: 15,
@@ -104,6 +110,8 @@ window.EVENT = {
       ],
     },
   ],
+  // 제출 Padlet 주소. 보드를 만든 뒤 여기에 붙여 넣으면 가족용 안내의 "Padlet 열기" 버튼이 켜집니다.
+  padletUrl: '',
   // 쉬는 시간: 해당 차시가 끝난 뒤에 자동으로 끼워 넣습니다.
   breakMinutes: 10,
   breakAfter: ['s1', 's2'],
