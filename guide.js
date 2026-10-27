@@ -50,8 +50,8 @@
 
   // 이름·학교·연락처로 보이는 말을 입력하면 알려 준다. (차단하지 않고 안내만 한다.)
   function personalInfoHint(text) {
-    if (/(\d{2,3}[- ]?\d{3,4}[- ]?\d{4})/.test(text)) return '전화번호처럼 보이는 숫자가 있어요. 지워 주세요.';
-    if (/(초등학교|학교|학년|\d+반)/.test(text)) return '학교나 학년 이야기는 빼 주세요.';
+    if (/(\d{2,3}[- ]?\d{3,4}[- ]?\d{4})/.test(text)) return '전화번호처럼 보이는 숫자가 있어요. 지워요.';
+    if (/(초등학교|학교|학년|\d+반)/.test(text)) return '학교나 학년 이야기는 빼요.';
     return '';
   }
 
@@ -62,7 +62,7 @@
 
   function renderBuilder(card) {
     const b = el('div', { class: 'builder' });
-    const out = el('textarea', { readonly: 'readonly', 'aria-label': 'Gemini에게 보낼 문장' });
+    const out = el('textarea', { readonly: 'readonly', 'aria-label': 'Gemini에게 부탁하는 글' });
     const warn = el('div', { class: 'warn-text' });
     const copyMsg = el('span', { class: 'ok' });
 
@@ -93,7 +93,7 @@
     b.appendChild(el('label', { text: '3. 우리 가족이 함께 하는 것은?' }));
     b.appendChild(el('input', { type: 'text', value: form.together, placeholder: '예: 주말에 공원 가기', oninput: (e) => { form.together = e.target.value; refresh(); } }));
 
-    b.appendChild(el('label', { text: '4. 어떤 분위기가 좋아요?' }));
+    b.appendChild(el('label', { text: '4. 어떤 느낌이 좋아요?' }));
     const moodBox = el('div');
     function drawMood() {
       moodBox.innerHTML = '';
@@ -103,7 +103,7 @@
     b.appendChild(moodBox);
 
     b.appendChild(warn);
-    b.appendChild(el('label', { text: 'Gemini에게 보낼 문장' }));
+    b.appendChild(el('label', { text: 'Gemini에게 부탁하는 글' }));
     b.appendChild(out);
     b.appendChild(el('div', { class: 'copy-row' }, [
       el('button', {
