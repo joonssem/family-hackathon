@@ -12,7 +12,8 @@
     const found = sessions[sIdx].steps.findIndex((st) => st.id === saved);
     if (found >= 0) stIdx = found;
   }
-  let form = store.get('guide.form', { idea: '', ideaCustom: '', likes: '', together: '', mood: '' });
+  const emptyForm = { idea: '', ideaCustom: '', who: '', how: '', mood: '' };
+  let form = Object.assign({}, emptyForm, store.get('guide.form', {}));
 
   function el(tag, attrs, children) {
     const n = document.createElement(tag);
@@ -37,12 +38,12 @@
   function buildPrompt() {
     const idea = form.idea === '직접 쓰기' ? form.ideaCustom.trim() : form.idea;
     const lines = [
-      '우리 가족과 함께 쓸 웹페이지를 하나 만들어 주세요. 초등학교 저학년도 이해할 수 있게 쉬운 말로 설명해 주세요.',
-      '만들고 싶은 것: ' + (idea || '(아직 안 정했어요)'),
-      '우리 가족이 좋아하는 것: ' + (form.likes.trim() || '(아직 안 정했어요)'),
-      '우리 가족이 함께 하는 것: ' + (form.together.trim() || '(아직 안 정했어요)'),
-      '분위기: ' + (form.mood || '(아무거나 좋아요)'),
-      '조건: 글자는 크게, 버튼을 누르면 무언가 재미있게 바뀌는 동작을 한 가지 넣어 주세요. 하나의 HTML 파일로 바로 볼 수 있게 만들어 주세요.',
+      '우리 가족이 함께 풀고 싶은 문제가 있어요. 이 문제를 푸는 데 도움이 되는 웹페이지를 하나 만들어 주세요. 초등학교 저학년도 이해할 수 있게 쉬운 말로 설명해 주세요.',
+      '풀고 싶은 문제: ' + (idea || '(아직 안 정했어요)'),
+      '누가 불편한가요: ' + (form.who.trim() || '(아직 안 정했어요)'),
+      '어떻게 도와주면 좋은가요: ' + (form.how.trim() || '(아직 안 정했어요)'),
+      '느낌: ' + (form.mood || '(아무거나 좋아요)'),
+      '조건: 글자는 크게, 가족이 버튼을 눌러 바로 쓸 수 있게 해 주세요. 하나의 HTML 파일로 바로 볼 수 있게 만들어 주세요.',
       '실제 이름, 학교, 사진, 전화번호는 넣지 말고 "우리 가족"이나 별명으로만 써 주세요.',
     ];
     return lines.join('\n');
@@ -69,17 +70,17 @@
     function refresh() {
       store.set('guide.form', form);
       out.value = buildPrompt();
-      warn.textContent = personalInfoHint([form.ideaCustom, form.likes, form.together].join(' '));
+      warn.textContent = personalInfoHint([form.ideaCustom, form.who, form.how].join(' '));
     }
 
-    b.appendChild(el('label', { text: '1. 무엇을 만들까요?' }));
+    b.appendChild(el('label', { text: '1. 어떤 일을 해결할까요?' }));
     const ideaBox = el('div');
     function drawIdea() {
       ideaBox.innerHTML = '';
       ideaBox.appendChild(chips(E.promptBuilder.ideas.concat('직접 쓰기'), form.idea, (o) => { form.idea = o; drawIdea(); refresh(); }));
       if (form.idea === '직접 쓰기') {
         ideaBox.appendChild(el('input', {
-          type: 'text', value: form.ideaCustom, placeholder: '예: 우리 가족 요리 책',
+          type: 'text', value: form.ideaCustom, placeholder: '예: 아침에 늦잠 자는 일',
           oninput: (e) => { form.ideaCustom = e.target.value; refresh(); },
         }));
       }
@@ -87,11 +88,11 @@
     drawIdea();
     b.appendChild(ideaBox);
 
-    b.appendChild(el('label', { text: '2. 우리 가족이 좋아하는 것은?' }));
-    b.appendChild(el('input', { type: 'text', value: form.likes, placeholder: '예: 떡볶이, 캠핑, 노래', oninput: (e) => { form.likes = e.target.value; refresh(); } }));
+    b.appendChild(el('label', { text: '2. 누가 불편해요?' }));
+    b.appendChild(el('input', { type: 'text', value: form.who, placeholder: '예: 나와 동생', oninput: (e) => { form.who = e.target.value; refresh(); } }));
 
-    b.appendChild(el('label', { text: '3. 우리 가족이 함께 하는 것은?' }));
-    b.appendChild(el('input', { type: 'text', value: form.together, placeholder: '예: 주말에 공원 가기', oninput: (e) => { form.together = e.target.value; refresh(); } }));
+    b.appendChild(el('label', { text: '3. 어떻게 도와주면 좋을까요?' }));
+    b.appendChild(el('input', { type: 'text', value: form.how, placeholder: '예: 일어날 시간을 알려 주면 좋겠어요', oninput: (e) => { form.how = e.target.value; refresh(); } }));
 
     b.appendChild(el('label', { text: '4. 어떤 느낌이 좋아요?' }));
     const moodBox = el('div');
