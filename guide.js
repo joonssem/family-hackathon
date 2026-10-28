@@ -148,6 +148,7 @@
       body.appendChild(el('ul', { class: 'questions' }, step.questions.map((q) => el('li', { text: q }))));
     }
     if (step.kind === 'prompt') renderBuilder(body);
+    if (step.worksheet) body.insertBefore(el('a', { class: 'link-button', href: 'worksheet.html', target: '_blank', rel: 'noopener', text: '그림 학습지 열기 ↗' }), body.firstChild);
     if (step.link === 'padlet') {
       body.appendChild(E.padletUrl
         ? el('a', { class: 'link-button', href: E.padletUrl, target: '_blank', rel: 'noopener', text: 'Padlet 열기 ↗' })

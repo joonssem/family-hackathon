@@ -12,27 +12,22 @@ window.EVENT = {
       subtitle: '이야기하고 놀아요',
       steps: [
         {
-          id: 's1-intro', kind: 'intro', title: '시작해요', minutes: 5,
-          stage: '오늘은 가족과 이야기하고, 놀고, 만들어 봐요.',
-          guide: ['가족과 마주 보고 앉아요.', '선생님 말씀을 잘 들어요.'],
+          id: 's1-intro', kind: 'intro', title: '출석 확인과 소개', minutes: 5,
+          stage: '9가족의 참석을 확인하고 오늘 활동을 간단히 소개해요.',
+          guide: ['선생님과 함께 참석을 확인해요.', '오늘 활동을 간단히 들어요.'],
         },
         {
-          id: 's1-talk', kind: 'talk', title: '가족 이야기', minutes: 10,
-          stage: '질문을 하나씩 읽고 가족과 이야기해요.',
-          guide: ['한 사람씩 돌아가며 말해요.', '다른 사람이 말할 때는 끝까지 들어요.'],
-          questions: [
-            '우리 가족은 언제 가장 즐거워요?',
-            '우리 가족이 같이 먹으면 좋은 음식은 뭐예요?',
-            '오늘 가장 기대되는 것은 뭐예요?',
-          ],
+          id: 's1-talk', kind: 'talk', title: '스택 버거 안내', minutes: 5,
+          stage: '선생님의 스택 버거 활동 안내를 들어요.',
+          guide: ['활동 방법은 담당 선생님이 알려 줘요.'],
         },
         {
-          id: 's1-play', kind: 'play', title: '스택 버거 게임', minutes: 20,
+          id: 's1-play', kind: 'play', title: '스택 버거 활동', minutes: 17,
           stage: '스택 버거 게임을 가족이 함께 해요.',
           guide: ['게임 판을 같이 봐요.', '규칙은 선생님이 알려 줘요.'],
         },
         {
-          id: 's1-wrap', kind: 'wrap', title: '정리해요', minutes: 5,
+          id: 's1-wrap', kind: 'wrap', title: '정리해요', minutes: 3,
           stage: '게임 도구를 정리해요. 오늘 가장 재미있었던 것을 말해요.',
           guide: ['게임 도구를 상자에 담아요.', '가장 재미있었던 것을 한 가지씩 말해요.'],
         },
@@ -41,21 +36,19 @@ window.EVENT = {
     {
       id: 's2',
       title: '2차시',
-      subtitle: '해결할 일 찾기',
+      subtitle: '함께 생각하고 그려요',
       steps: [
         {
           id: 's2-start', kind: 'intro', title: '노트북 준비', minutes: 5,
-          stage: '함께 온 어른이 개인 Google 계정으로 로그인하고 Gemini를 열어요.',
+          stage: '학습지를 준비하고 오늘 만들 것을 이야기해요.',
           guide: [
-            '노트북은 이미 켜져 있어요.',
-            '어른이 자기 개인 Google 계정으로 로그인해요.',
-            'Gemini를 열어요.',
-            '쉬는 시간에는 노트북을 끄지 말고 그대로 둬요.',
+            '그림을 그릴 학습지와 필기도구를 준비해요.',
+            '아이가 생각을 말하고 어른은 이야기를 들어요.',
           ],
           privacy: true,
         },
         {
-          id: 's2-talk', kind: 'talk', title: '가족 이야기', minutes: 15,
+          id: 's2-talk', kind: 'talk', title: '가족 이야기', minutes: 10,
           stage: '이야기를 하며 우리 가족이 함께 해결할 일을 찾아요.',
           guide: ['질문을 읽고 이야기해요.', '아이가 먼저 말하고, 어른이 도와줘요.', '잘 만드는 것보다 함께 해결하는 것이 중요해요.'],
           questions: [
@@ -66,15 +59,16 @@ window.EVENT = {
           ],
         },
         {
-          id: 's2-prompt', kind: 'prompt', title: 'Gemini에게 부탁하기', minutes: 10,
-          stage: '찾은 일을 Gemini에게 부탁하는 글을 만들어요.',
-          guide: ['가족과 이야기한 것을 아이가 칸에 써요.', '칸을 채우면 부탁하는 글이 만들어져요.', '"복사하기"를 누르고 어른이 Gemini에 붙여 넣어요.'],
+          id: 's2-prompt', kind: 'prompt', title: '그림으로 준비 요청서 만들기', minutes: 15,
+          stage: '만들고 싶은 모습을 그리고 설명해요.',
+          guide: ['아이가 학습지에 그림을 그려요.', '화살표나 말풍선으로 어떻게 움직이는지 설명해요.', '어른은 아이의 말을 듣고 필요한 글을 적어 줘요.', '아래 입력칸은 학습지를 바탕으로 어른이 작성해요.'],
+          worksheet: true,
           privacy: true,
         },
         {
-          id: 's2-gemini', kind: 'make', title: 'Gemini가 만든 것 보기', minutes: 10,
-          stage: 'Gemini가 만든 것이 우리 일을 해결하는지 가족이 함께 봐요.',
-          guide: ['우리 문제를 해결하는 데 도움이 되는지 이야기해요.', '더 도움이 되도록 고치고 싶은 곳을 하나 골라요.'],
+          id: 's2-gemini', kind: 'make', title: '부탁할 내용 확인하기', minutes: 10,
+          stage: '그림과 설명을 보며 만들고 싶은 것을 함께 확인해요.',
+          guide: ['아이가 그림을 설명하고 어른이 들어요.', '꼭 들어가면 좋은 것을 하나 골라요.', '준비한 요청서는 다음 활동과 발표에 사용해요.'],
         },
       ],
     },
@@ -84,9 +78,11 @@ window.EVENT = {
       subtitle: '해결하고 소개해요',
       steps: [
         {
-          id: 's3-make', kind: 'make', title: '고쳐서 완성하기', minutes: 20,
-          stage: '아이가 고칠 곳을 말하고, 어른이 Gemini에 입력해서 완성해요.',
+          id: 's3-make', kind: 'make', title: '함께 만들고 고치기', minutes: 15,
+          stage: '준비 요청서를 보고 어른이 Gemini에 입력해 함께 만들어요.',
           guide: [
+            '어른이 개인 Google 계정으로 로그인하고 Gemini를 열어요.',
+            '학습지와 준비한 부탁 글을 보고 어른이 입력해요.',
             '고치고 싶은 곳은 아이가 말해요.',
             'Gemini에는 함께 온 어른이 입력해요.',
             '"글자를 더 크게 해 줘", "버튼을 하나 더 넣어 줘"처럼 쉽게 말해요.',
@@ -106,10 +102,13 @@ window.EVENT = {
           link: 'padlet',
         },
         {
-          id: 's3-present', kind: 'present', title: '우리 가족 소개', minutes: 15,
-          stage: '우리 가족이 찾은 일과 해결한 방법을 소개해요.',
-          guide: ['우리가 찾은 일은 무엇인지 말해요.', '어떻게 해결했는지 보여 줘요.', '해결하면서 가장 기억에 남는 것을 말해요.'],
+          id: 's3-present', kind: 'present', title: '우리 가족 소개', minutes: 18,
+          stage: '9가족이 한 가족씩 약 2분 동안 소개해요.',
+          guide: ['학습지나 만든 결과를 보여 줘요.', '무엇을 만들고 싶었는지 이야기해요.', '마음에 드는 점을 하나 소개해요.'],
         },
+        { id: 's3-wrap', kind: 'wrap', title: '마무리', minutes: 2,
+          stage: '서로의 이야기를 듣고 함께 마무리해요.',
+          guide: ['모든 가족에게 박수를 보내요.'] },
       ],
     },
   ],
