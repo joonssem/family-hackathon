@@ -113,7 +113,7 @@ window.EVENT = {
     },
   ],
   // 제출 Padlet 주소. 보드를 만든 뒤 여기에 붙여 넣으면 가족용 안내의 "Padlet 열기" 버튼이 켜집니다.
-  padletUrl: '',
+  padletUrl: 'https://padlet.com/gocheok/2026_gocheok_familyhackathon',
   // 쉬는 시간: 해당 차시가 끝난 뒤에 자동으로 끼워 넣습니다.
   breakMinutes: 10,
   breakAfter: ['s1', 's2'],
